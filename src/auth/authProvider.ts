@@ -11,10 +11,11 @@ export const authProvider: AuthProvider = {
         password,
       });
 
-      const { accessToken, refreshToken } = response.data;
+      console.log(response);
+      const { accessToken, refreshToken } = response.data.data;
 
-      localStorage.setItem("accessToken", JSON.stringify(accessToken));
-      localStorage.setItem("refreshToken", JSON.stringify(refreshToken));
+      localStorage.setItem("accessToken", accessToken);
+      localStorage.setItem("refreshToken", refreshToken);
 
       return Promise.resolve();
     } catch (error) {

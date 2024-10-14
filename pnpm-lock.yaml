@@ -26,6 +26,9 @@ dependencies:
   ra-data-fakerest:
     specifier: ^5.2.2
     version: 5.2.2(ra-core@5.2.2)
+  ra-data-simple-rest:
+    specifier: ^5.2.3
+    version: 5.2.3(ra-core@5.2.2)
   react:
     specifier: ^18.3.0
     version: 18.3.1
@@ -3006,6 +3009,15 @@ packages:
       ra-core: ^5.0.0
     dependencies:
       fakerest: 4.1.1
+      ra-core: 5.2.2(react-dom@18.3.1)(react-hook-form@7.53.0)(react-router-dom@6.26.2)(react-router@6.26.2)(react@18.3.1)
+    dev: false
+
+  /ra-data-simple-rest@5.2.3(ra-core@5.2.2):
+    resolution: {integrity: sha512-PB0MHAHqeVEVNGr4S+6zOoLVc+V12IAM99fVEGBsV6i3aNI4pr9Tu5VtATKZ3R3n9OHKgmse87CGxuYPncxzWA==}
+    peerDependencies:
+      ra-core: ^5.0.0
+    dependencies:
+      query-string: 7.1.3
       ra-core: 5.2.2(react-dom@18.3.1)(react-hook-form@7.53.0)(react-router-dom@6.26.2)(react-router@6.26.2)(react@18.3.1)
     dev: false
 

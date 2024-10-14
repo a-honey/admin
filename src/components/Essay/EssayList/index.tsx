@@ -1,4 +1,4 @@
-import { Datagrid, EmailField, List, TextField } from "react-admin";
+import { Datagrid, List, TextField } from "react-admin";
 
 export const EssayList = () => (
   <List>
@@ -6,7 +6,7 @@ export const EssayList = () => (
       <TextField source="id" />
       <TextField source="name" />
       <TextField source="author" />
-      <TextField source="content" />
+      <TextField source="title" />
     </Datagrid>
   </List>
 );

@@ -18,32 +18,37 @@ import PersonIcon from "@mui/icons-material/Person";
 import SupervisorAccountIcon from "@mui/icons-material/SupervisorAccount";
 import UserList from "./components/User/UserList";
 import authProvider from "./auth/authProvider";
+import customDataProvider from "./services/dataProvider";
 
 const queryClient = new QueryClient();
 
 export const App = () => (
   <QueryClientProvider client={queryClient}>
-    <Admin layout={Layout} authProvider={authProvider}>
+    <Admin
+      layout={Layout}
+      dataProvider={customDataProvider}
+      authProvider={authProvider}
+    >
       <Resource
-        name="User"
+        name="users"
         list={UserList}
         icon={PersonIcon}
         options={{ label: "사용자 목록" }}
       />
       <Resource
-        name="Essay"
+        name="essays"
         list={EssayList}
         icon={BookIcon}
         options={{ label: "에세이 목록" }}
       />
       <Resource
-        name="Notice"
+        name="notices"
         list={NoticeList}
         icon={AnnouncementIcon}
         options={{ label: "공지사항" }}
       />
       <Resource
-        name="Questions"
+        name="inquiries"
         list={QuestionsList}
         icon={HelpIcon}
         options={{ label: "QnA" }}

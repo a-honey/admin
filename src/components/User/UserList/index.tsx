@@ -5,12 +5,9 @@ const UserList = () => {
     <List>
       <Datagrid>
         <TextField source="id" />
-        <TextField source="name" label="닉네임" />
-        <TextField source="username" />
+        <TextField source="nickname" label="닉네임" />
         <EmailField source="email" label="이메일" />
-        <TextField source="address.street" />
         <TextField source="createdDate" label="가입날짜" />
-        <TextField source="website" />
         <TextField source="platform" label="SNS 유형" />
       </Datagrid>
     </List>
