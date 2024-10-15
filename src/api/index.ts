@@ -1,13 +1,14 @@
 import Cookies from "js-cookie";
 import axios from "axios";
+import { baseApiUrl } from "../constants/env";
 
 const AxiosInstance = axios.create({
-  baseURL: import.meta.env.VITE_ROOT_API_URL,
+  baseURL: baseApiUrl,
 });
 
 AxiosInstance.interceptors.request.use((config) => {
-  const accessToken = Cookies.get("accessToken");
-  const refreshToken = Cookies.get("refreshToken");
+  const accessToken = localStorage.getItem("accessToken");
+  const refreshToken = localStorage.getItem("refreshToken");
   if (refreshToken) {
     config.headers["x-refresh-token"] = refreshToken;
   }
