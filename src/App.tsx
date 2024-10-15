@@ -15,6 +15,7 @@ import EssayList from "./components/Essay/EssayList";
 import EssayShow from "./components/Essay/EssayShow";
 import HelpIcon from "@mui/icons-material/Help";
 import Layout from "./components/GNB";
+import ManagerList from "./components/Manager/ManagerList";
 import PersonIcon from "@mui/icons-material/Person";
 import SupervisorAccountIcon from "@mui/icons-material/SupervisorAccount";
 import UserList from "./components/User/UserList";
@@ -56,7 +57,7 @@ export const App = () => (
         options={{ label: "QnA" }}
       />
       <Resource
-        name="Manager"
+        name="managers"
         list={ManagerList}
         icon={SupervisorAccountIcon}
         options={{ label: "관리자 목록" }}
@@ -87,19 +88,6 @@ export const QuestionsList = () => (
       <TextField source="id" />
       <TextField source="question" />
       <TextField source="answer" />
-    </Datagrid>
-  </List>
-);
-
-const ManagerList = () => (
-  <List>
-    <Datagrid>
-      <TextField source="id" />
-      <TextField source="name" />
-      <TextField source="username" />
-      <EmailField source="email" />
-      <TextField source="phone" />
-      <TextField source="company.name" />
     </Datagrid>
   </List>
 );

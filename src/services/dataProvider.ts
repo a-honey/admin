@@ -44,6 +44,30 @@ const customDataProvider = {
         total: json.data.total,
       }));
     }
+    if (resource === "notices") {
+      const { page, perPage } = params.pagination;
+
+      const filter = "all";
+
+      const url = `${baseApiUrl}/admin-support/${resource}?page=${page}&limit=${perPage}&filter=${filter}`;
+
+      return httpClient(url).then(({ json }) => ({
+        data: json.data.Notices,
+        total: json.data.total,
+      }));
+    }
+    if (resource === "managers") {
+      // const { page, perPage } = params.pagination;
+
+      const filter = "all";
+
+      const url = `${baseApiUrl}/admin-info/?activated=true`;
+
+      return httpClient(url).then(({ json }) => ({
+        data: json.data.admins,
+        total: json.data.total,
+      }));
+    }
     return dataProvider.getList(resource, params);
   },
 
