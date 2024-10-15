@@ -12,6 +12,7 @@ import AdminPanelSettingsIcon from "@mui/icons-material/AdminPanelSettings";
 import AnnouncementIcon from "@mui/icons-material/Announcement";
 import BookIcon from "@mui/icons-material/Book";
 import EssayList from "./components/Essay/EssayList";
+import EssayShow from "./components/Essay/EssayShow";
 import HelpIcon from "@mui/icons-material/Help";
 import Layout from "./components/GNB";
 import PersonIcon from "@mui/icons-material/Person";
@@ -38,6 +39,7 @@ export const App = () => (
       <Resource
         name="essays"
         list={EssayList}
+        show={EssayShow}
         icon={BookIcon}
         options={{ label: "에세이 목록" }}
       />

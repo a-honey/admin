@@ -11,7 +11,6 @@ export const authProvider: AuthProvider = {
         password,
       });
 
-      console.log(response);
       const { accessToken, refreshToken } = response.data.data;
 
       localStorage.setItem("accessToken", accessToken);

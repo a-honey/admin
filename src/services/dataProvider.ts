@@ -46,6 +46,13 @@ const customDataProvider = {
     }
     return dataProvider.getList(resource, params);
   },
+
+  getOne: (resource: any, params: any) => {
+    const url = `${apiUrl}/${resource}/${params.id}`;
+    return httpClient(url).then(({ json }) => ({
+      data: json.data,
+    }));
+  },
 };
 
 export default customDataProvider;
