@@ -2,6 +2,7 @@ import { AuthProvider, HttpError } from "react-admin";
 
 import axios from "axios";
 import { baseApiUrl } from "../constants/env";
+import getServerStatus from "../services/server/getServerStatus";
 
 export const authProvider: AuthProvider = {
   login: async ({ username, password }) => {
@@ -29,8 +30,20 @@ export const authProvider: AuthProvider = {
     return Promise.resolve();
   },
   checkError: () => Promise.resolve(),
-  checkAuth: () =>
-    localStorage.getItem("accessToken") ? Promise.resolve() : Promise.reject(),
+  checkAuth: async () => {
+    if (localStorage.getItem("accessToken")) {
+      try {
+        await getServerStatus();
+
+        return Promise.resolve();
+      } catch (error) {
+        localStorage.removeItem("accessToken");
+        localStorage.removeItem("refreshToken");
+        return Promise.reject();
+      }
+    }
+    return Promise.reject();
+  },
   getPermissions: () => {
     return Promise.resolve(undefined);
   },

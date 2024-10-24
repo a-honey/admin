@@ -1,15 +1,6 @@
-import {
-  Show,
-  SimpleShowLayout,
-  TextField,
-  useRecordContext,
-} from "react-admin";
+import { Show, SimpleShowLayout, TextField } from "react-admin";
 
-const CustomContentField = ({ source }: { source: string; label: string }) => {
-  const record = useRecordContext();
-  if (!record) return null;
-  return <div dangerouslySetInnerHTML={{ __html: record[source] }} />;
-};
+import CustomContentField from "../../@common/CustomContentField";
 
 const EssayShow = (props: any) => {
   return (

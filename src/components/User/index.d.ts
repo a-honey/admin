@@ -1,6 +1,6 @@
-type PlatformType = "naver" | "kakao";
+export type PlatformType = "naver" | "kakao";
 
-type UserType = {
+export type UserType = {
   id: number;
   email: "20240921T073657_leejy8506@naver.com";
   nickname: string;

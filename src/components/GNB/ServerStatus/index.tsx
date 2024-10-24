@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-import getServerStatus from "../../../api/server/getServerStatus";
+import getServerStatus from "../../../services/server/getServerStatus";
 
 const ServerStatus = () => {
   const [isServerAvailable, setIsServerAbailable] = useState(false);

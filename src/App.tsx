@@ -16,9 +16,11 @@ import EssayShow from "./components/Essay/EssayShow";
 import HelpIcon from "@mui/icons-material/Help";
 import Layout from "./components/GNB";
 import ManagerList from "./components/Manager/ManagerList";
+import ManagerShow from "./components/Manager/ManagerShow";
 import PersonIcon from "@mui/icons-material/Person";
 import SupervisorAccountIcon from "@mui/icons-material/SupervisorAccount";
 import UserList from "./components/User/UserList";
+import UserShow from "./components/User/UserShow";
 import authProvider from "./auth/authProvider";
 import customDataProvider from "./services/dataProvider";
 
@@ -34,6 +36,7 @@ export const App = () => (
       <Resource
         name="users"
         list={UserList}
+        show={UserShow}
         icon={PersonIcon}
         options={{ label: "사용자 목록" }}
       />
@@ -59,6 +62,7 @@ export const App = () => (
       <Resource
         name="managers"
         list={ManagerList}
+        show={ManagerShow}
         icon={SupervisorAccountIcon}
         options={{ label: "관리자 목록" }}
       />
