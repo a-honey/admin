@@ -1,5 +1,6 @@
 import {
   Admin,
+  CustomRoutes,
   EditGuesser,
   ListGuesser,
   Resource,
@@ -9,14 +10,18 @@ import { Datagrid, EmailField, List, TextField } from "react-admin";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 import AdminPanelSettingsIcon from "@mui/icons-material/AdminPanelSettings";
+import Administrator from "./components/Administrator";
 import AnnouncementIcon from "@mui/icons-material/Announcement";
 import BookIcon from "@mui/icons-material/Book";
+import Dashboard from "./components/Dashboard";
 import EssayList from "./components/Essay/EssayList";
 import EssayShow from "./components/Essay/EssayShow";
 import HelpIcon from "@mui/icons-material/Help";
 import Layout from "./components/GNB";
 import ManagerList from "./components/Manager/ManagerList";
 import ManagerShow from "./components/Manager/ManagerShow";
+import MyPage from "./components/MyPage";
+import { NoticeList } from "./components/Notice/NoticeList";
 import PersonIcon from "@mui/icons-material/Person";
 import SupervisorAccountIcon from "@mui/icons-material/SupervisorAccount";
 import UserList from "./components/User/UserList";
@@ -32,6 +37,7 @@ export const App = () => (
       layout={Layout}
       dataProvider={customDataProvider}
       authProvider={authProvider}
+      dashboard={Dashboard}
     >
       <Resource
         name="users"
@@ -67,23 +73,19 @@ export const App = () => (
         options={{ label: "관리자 목록" }}
       />
       <Resource
+        name="my-page"
+        list={MyPage}
+        icon={PersonIcon}
+        options={{ label: "마이 페이지" }}
+      />
+      <Resource
         name="Administrator"
-        list={ManagerList}
+        list={Administrator}
         icon={AdminPanelSettingsIcon}
         options={{ label: "최고 관리자" }}
       />
     </Admin>
   </QueryClientProvider>
-);
-
-export const NoticeList = () => (
-  <List>
-    <Datagrid>
-      <TextField source="id" />
-      <TextField source="title" />
-      <TextField source="description" />
-    </Datagrid>
-  </List>
 );
 
 export const QuestionsList = () => (

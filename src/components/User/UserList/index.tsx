@@ -1,8 +1,17 @@
-import { Datagrid, DateField, EmailField, List, TextField } from "react-admin";
+import {
+  Datagrid,
+  DateField,
+  EmailField,
+  Filter,
+  List,
+  TextField,
+} from "react-admin";
 
-const UserList = () => {
+import { TextInput } from "react-admin";
+
+const UserList = (props: any) => {
   return (
-    <List>
+    <List {...props} filters={<SearchFilter />}>
       <Datagrid>
         <TextField source="id" />
         <TextField source="nickname" label="닉네임" />
@@ -20,3 +29,10 @@ const UserList = () => {
 };
 
 export default UserList;
+const SearchFilter = (props: any) => {
+  return (
+    <Filter {...props}>
+      <TextInput label="사용자 이메일 검색" source="email" alwaysOn />
+    </Filter>
+  );
+};

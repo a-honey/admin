@@ -17,7 +17,12 @@ const httpClient = (url: string, options: any = {}) => {
   options.headers.set("x-refresh-token", refreshToken);
 
   const fullUrl = `${baseApiUrl}${url}`;
-  return fetchUtils.fetchJson(fullUrl, options);
+  return fetchUtils.fetchJson(fullUrl, options).then((response) => {
+    const newAccessToken = response.headers.get("x-access-token");
+    if (newAccessToken) {
+      localStorage.setItem("accessToken", newAccessToken);
+    }
+    return response;
+  });
 };
-
 export default httpClient;

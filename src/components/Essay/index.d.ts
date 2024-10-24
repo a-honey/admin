@@ -1,18 +1,50 @@
 type EssayType = {
-  id: number;
-  title: string;
-  content: string;
-  linkedOutGauge: 5;
-  latitude: null;
-  longitude: null;
-  location: null;
-  createdDate: "2024-10-11T17:01:32.832+09:00";
-  updatedDate: "2024-10-11T17:01:57.867+09:00";
-  thumbnail: null;
+  id: 0;
+  title: "string";
+  content: "string";
+  linkedOutGauge: 0;
+  latitude: 0;
+  longitude: 0;
+  location: "string";
+  createdDate: "2024-10-24T14:48:39.315Z";
+  updatedDate: "2024-10-24T14:48:39.315Z";
+  thumbnail: "string";
+  bookmarks: true;
   views: 0;
-  status: "private";
-  authorId: 323;
-  storyId: 128;
-  reportCount: 0;
-  reviewCount: 0;
+  status: "Unknown Type: enum";
+  device: "string";
+  author: {
+    id: 0;
+    email: "string";
+    nickname: "string";
+    password: "string";
+    gender: "string";
+    profileImage: "string";
+    birthDate: "2024-10-24T14:48:39.315Z";
+    platform: "string";
+    platformId: "string";
+    role: "string";
+    status: "activated";
+    reputation: 0;
+    subscriptionEnd: "2024-10-24T14:48:39.315Z";
+    createdDate: "2024-10-24T14:48:39.315Z";
+    updatedDate: "2024-10-24T14:48:39.315Z";
+    deactivationDate: "2024-10-24T14:48:39.315Z";
+    deletedDate: "2024-10-24T14:48:39.315Z";
+  };
+  story: {
+    id: 0;
+    name: "string";
+    createdDate: "2024-10-24T14:48:39.315Z";
+    updatedDate: "2024-10-24T14:48:39.315Z";
+  };
+  trandScore: 0;
+  reports: [
+    {
+      id: 0;
+      reason: "string";
+    },
+  ];
 };
+
+export type EssayStatusType = "private" | "published" | "linkedout";
