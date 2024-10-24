@@ -10,7 +10,7 @@ const UserCount = () => {
   });
 
   return (
-    <div>
+    <div style={{ width: "100%", paddingLeft: "50px" }}>
       <UserCountItem label="총 가입자" value={countsData?.totalUser} />
       <UserCountItem
         label="프리미엄 구독자"
