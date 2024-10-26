@@ -1,16 +1,15 @@
 import httpClient from "../httpClient";
 
-export default function getQuestions(params: any) {
+export default async function getReleases(params: any) {
   const { page, perPage } = params.pagination;
 
-  const status =
-    params.filter && params.filter.isAnswered === "no" ? "unprocessed" : "all";
+  const filter = "all";
 
-  const url = `/admin-support/inquiries?page=${page}&limit=${perPage}&status=${status}`;
+  const url = `/admin-support/releases?page=${page}&limit=${perPage}&filter=${filter}`;
 
   return httpClient(url)
     .then(({ json }) => ({
-      data: json.data.inquiries,
+      data: json.data.releases,
       total: json.data.total,
     }))
     .catch((error) => {

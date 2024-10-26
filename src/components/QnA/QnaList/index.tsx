@@ -1,8 +1,8 @@
-import { Datagrid, List, TextField } from "react-admin";
+import { Datagrid, Filter, List, SelectInput, TextField } from "react-admin";
 
 const QnaList = () => {
   return (
-    <List sx={{ marginTop: 3 }} perPage={20}>
+    <List filters={<QnaFilter />} sx={{ marginTop: 3 }} perPage={20}>
       <Datagrid>
         <TextField source="id" />
         <TextField source="question" />
@@ -13,3 +13,14 @@ const QnaList = () => {
 };
 
 export default QnaList;
+
+const QnaFilter = (props: any) => (
+  <Filter {...props}>
+    <SelectInput
+      label="응답 상태"
+      source="isAnswered"
+      choices={[{ id: "no", name: "응답 미완료" }]}
+      alwaysOn
+    />
+  </Filter>
+);
