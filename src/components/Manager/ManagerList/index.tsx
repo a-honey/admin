@@ -2,7 +2,7 @@ import { Datagrid, EmailField, List, TextField } from "react-admin";
 
 const ManagerList = () => {
   return (
-    <List>
+    <List sx={{ marginTop: 3 }} perPage={20}>
       <Datagrid>
         <TextField source="id" />
         <TextField source="name" label="닉네임" />

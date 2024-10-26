@@ -25,12 +25,20 @@ const Dashboard = () => {
     <div
       style={{
         display: "flex",
+        alignItems: "start",
         flexDirection: "row",
-        marginTop: "50px",
+        marginTop: "30px",
+        gap: "0px",
       }}
     >
-      <UserCount />
-      <div style={{ display: "flex", flexDirection: "column", width: "100%" }}>
+      <div
+        style={{
+          display: "grid",
+          gridTemplateRows: "1fr 1fr 1fr",
+          gridTemplateColumns: "1fr 1fr",
+          width: "60%",
+        }}
+      >
         <ChartGroup
           label={`${month}월 에세이 작성 수`}
           data={data?.essays.daily}
@@ -55,7 +63,8 @@ const Dashboard = () => {
           label={`${year}년 구독 가입 수`}
           data={data?.payments.monthly}
         />
-      </div>
+      </div>{" "}
+      <UserCount />
     </div>
   );
 };

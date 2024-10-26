@@ -11,7 +11,12 @@ import { TextInput } from "react-admin";
 
 const UserList = (props: any) => {
   return (
-    <List {...props} filters={<SearchFilter />}>
+    <List
+      {...props}
+      filters={<SearchFilter />}
+      sx={{ marginTop: 3 }}
+      perPage={20}
+    >
       <Datagrid>
         <TextField source="id" />
         <TextField source="nickname" label="닉네임" />

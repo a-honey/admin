@@ -6,6 +6,7 @@ import {
   SimpleForm,
   TextField,
   TextInput,
+  TopToolbar,
   useNotify,
   useRedirect,
   useRefresh,
@@ -19,12 +20,16 @@ export const NoticeList = () => {
 
   return (
     <>
-      <button onClick={() => setModalOpen(true)}>공지사항 작성하기</button>
+      <TopToolbar sx={{ marginTop: "30px" }}>
+        <Button onClick={() => setModalOpen(true)} variant="contained">
+          공지사항 작성하기
+        </Button>
+      </TopToolbar>
       <NoticeCreateModal
         isOpen={isModalOpen}
         onClose={() => setModalOpen(false)}
       />
-      <List>
+      <List sx={{ marginTop: 3 }} perPage={20}>
         <Datagrid>
           <TextField source="id" />
           <TextField source="title" />
@@ -35,7 +40,6 @@ export const NoticeList = () => {
   );
 };
 
-// 공지사항 작성 모달 컴포넌트
 const NoticeCreateModal = ({
   isOpen,
   onClose,

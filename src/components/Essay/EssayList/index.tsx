@@ -9,7 +9,7 @@ const CustomTitleField = ({ source }: { source: string }) => {
 };
 
 export const EssayList = () => (
-  <List>
+  <List sx={{ marginTop: 3 }} perPage={20}>
     <Datagrid>
       <TextField source="id" />
       <TextField source="name" />

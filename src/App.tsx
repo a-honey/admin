@@ -17,15 +17,18 @@ import Dashboard from "./components/Dashboard";
 import EssayList from "./components/Essay/EssayList";
 import EssayShow from "./components/Essay/EssayShow";
 import HelpIcon from "@mui/icons-material/Help";
+import HourglassFullIcon from "@mui/icons-material/HourglassFull";
 import Layout from "./components/GNB";
 import ManagerList from "./components/Manager/ManagerList";
 import ManagerShow from "./components/Manager/ManagerShow";
 import MyPage from "./components/MyPage";
 import { NoticeList } from "./components/Notice/NoticeList";
 import PersonIcon from "@mui/icons-material/Person";
+import QnaList from "./components/QnA/QnaList";
 import SupervisorAccountIcon from "@mui/icons-material/SupervisorAccount";
 import UserList from "./components/User/UserList";
 import UserShow from "./components/User/UserShow";
+import Version from "./components/Version";
 import authProvider from "./auth/authProvider";
 import customDataProvider from "./services/dataProvider";
 
@@ -61,7 +64,7 @@ export const App = () => (
       />
       <Resource
         name="inquiries"
-        list={QuestionsList}
+        list={QnaList}
         icon={HelpIcon}
         options={{ label: "QnA" }}
       />
@@ -71,6 +74,12 @@ export const App = () => (
         show={ManagerShow}
         icon={SupervisorAccountIcon}
         options={{ label: "관리자 목록" }}
+      />
+      <Resource
+        name="version"
+        list={Version}
+        icon={HourglassFullIcon}
+        options={{ label: "버전관리" }}
       />
       <Resource
         name="my-page"
@@ -86,14 +95,4 @@ export const App = () => (
       />
     </Admin>
   </QueryClientProvider>
-);
-
-export const QuestionsList = () => (
-  <List>
-    <Datagrid>
-      <TextField source="id" />
-      <TextField source="question" />
-      <TextField source="answer" />
-    </Datagrid>
-  </List>
 );
