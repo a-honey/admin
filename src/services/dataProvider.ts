@@ -1,3 +1,4 @@
+import deleteNotice from "./notices/deleteNotice";
 import getEssays from "./essays/getEssays";
 import getGeulroquis from "./geulroquis/getGeulroquis";
 import getManagers from "./managers/getManagers";
@@ -41,6 +42,32 @@ const customDataProvider = {
     return httpClient(url).then(({ json }) => ({
       data: json.data,
     }));
+  },
+  delete: (resource: any, params: any) => {
+    const confirmed = window.confirm("정말 삭제하시겠습니까?");
+
+    if (confirmed) {
+      if (resource === "notices") return deleteNotice(params);
+      const url = `/${resource}/${params.id}`;
+      return httpClient(url).then(({ json }) => ({
+        data: json.data,
+      }));
+    } else {
+      return Promise.reject();
+    }
+  },
+
+  deleteMany: (resource: any, params: any) => {
+    const confirmed = window.confirm("정말 삭제하시겠습니까?");
+    if (confirmed) {
+      if (resource === "notices") return deleteNotice(params);
+      const url = `/${resource}/${params.id}`;
+      return httpClient(url).then(({ json }) => ({
+        data: json.data,
+      }));
+    } else {
+      return Promise.reject();
+    }
   },
 };
 

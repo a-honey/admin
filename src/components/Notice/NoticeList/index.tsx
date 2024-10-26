@@ -20,7 +20,7 @@ export const NoticeList = () => {
 
   return (
     <>
-      <TopToolbar sx={{ marginTop: "30px" }}>
+      <TopToolbar sx={{ marginTop: "30px", marginRight: "100px" }}>
         <Button onClick={() => setModalOpen(true)} variant="contained">
           공지사항 작성하기
         </Button>

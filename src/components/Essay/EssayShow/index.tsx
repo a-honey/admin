@@ -1,5 +1,6 @@
 import {
   DateField,
+  DeleteButton,
   Show,
   SimpleShowLayout,
   TextField,
@@ -8,6 +9,10 @@ import {
 
 import CustomContentField from "../../@common/CustomContentField";
 import { EssayStatusType } from "..";
+import ListBox from "./ListBox";
+import Report from "./ListBox";
+import Review from "./Review";
+import Story from "./Story";
 import updateEssayStatus from "../../../services/essays/updateEssayStatus";
 import { useState } from "react";
 
@@ -46,7 +51,16 @@ const EssayShow = (props: any) => {
             locales="ko-KR"
           />
         </SimpleShowLayout>
-        <CustomContentField source="content" label="에세이 내용" />
+        <SimpleShowLayout>
+          <CustomContentField source="content" label="에세이 내용" />
+          <DeleteButton />
+        </SimpleShowLayout>
+        <SimpleShowLayout>
+          <hr />
+          <ListBox source="story" label="스토리 목록" />
+          <ListBox source="reviews" label="리뷰 목록" />
+          <ListBox source="reports" label="레포트 목록" />
+        </SimpleShowLayout>
       </SimpleShowLayout>
     </Show>
   );

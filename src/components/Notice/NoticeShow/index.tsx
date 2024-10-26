@@ -1,4 +1,10 @@
-import { DateField, Show, SimpleShowLayout, TextField } from "react-admin";
+import {
+  DateField,
+  DeleteButton,
+  Show,
+  SimpleShowLayout,
+  TextField,
+} from "react-admin";
 
 import CustomContentField from "../../@common/CustomContentField";
 
@@ -15,6 +21,7 @@ const NoticeShow = (props: any) => {
           locales="ko-KR"
         />
         <CustomContentField source="content" label="공지사항 내용" />
+        <DeleteButton resource="notices" />
       </SimpleShowLayout>
     </Show>
   );

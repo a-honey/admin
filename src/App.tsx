@@ -1,3 +1,5 @@
+import "./styles/globals.css";
+
 import {
   Admin,
   CustomRoutes,
@@ -43,9 +45,23 @@ import customDataProvider from "./services/dataProvider";
 
 const queryClient = new QueryClient();
 
+const theme = {
+  typography: {
+    // Use the system font instead of the default Roboto font.
+    fontFamily: [
+      "Pretendard",
+      "-apple-system",
+      "BlinkMacSystemFont",
+      '"Segoe UI"',
+      "Arial",
+      "sans-serif",
+    ].join(","),
+  },
+};
 export const App = () => (
   <QueryClientProvider client={queryClient}>
     <Admin
+      theme={theme}
       layout={Layout}
       dataProvider={customDataProvider}
       authProvider={authProvider}

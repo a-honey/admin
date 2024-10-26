@@ -1,5 +1,6 @@
 import { Box, Divider, Grid2 as Grid } from "@mui/material";
 import { Show, SimpleShowLayout, TextField } from "react-admin";
+import { useDelete, useRecordContext } from "react-admin";
 
 import CustomImageField from "../../@common/CustomImageField";
 
@@ -25,6 +26,7 @@ const UserShow = (props: any) => {
           <TextField source="updatedDate" label="계정 수정 날짜" />
           <TextField source="deactivationDate" label="계정 비활성화 날짜" />
           <TextField source="deletedDate" label="계정 삭제 날짜" />
+          <DeleteButton />
         </SimpleShowLayout>
       </SimpleShowLayout>
     </Show>
@@ -32,3 +34,19 @@ const UserShow = (props: any) => {
 };
 
 export default UserShow;
+
+const DeleteButton = () => {
+  const record = useRecordContext();
+  const [deleteOne, { isPending, error }] = useDelete();
+  const handleClick = () => {
+    deleteOne("users", { id: record?.id, previousData: record });
+  };
+  if (error) {
+    return <p>ERROR</p>;
+  }
+  return (
+    <button disabled={isPending} onClick={handleClick}>
+      Delete
+    </button>
+  );
+};
