@@ -7,12 +7,12 @@ import {
   useRecordContext,
 } from "react-admin";
 
+import Chip from "../../@common/Chip";
 import CustomContentField from "../../@common/CustomContentField";
+import CustomField from "../../@common/CustomField";
 import { EssayStatusType } from "..";
 import ListBox from "./ListBox";
-import Report from "./ListBox";
-import Review from "./Review";
-import Story from "./Story";
+import { getEssayStatusLabel } from "../index.utils";
 import updateEssayStatus from "../../../services/essays/updateEssayStatus";
 import { useState } from "react";
 
@@ -22,21 +22,28 @@ const EssayShow = (props: any) => {
       <SimpleShowLayout>
         <SimpleShowLayout
           direction="row"
-          width={400}
+          width={540}
           justifyContent="space-between"
         >
-          <TextField source="id" label="에세이 ID" />
+          <TextField source="author.id" label="작성자 ID" />
           <TextField source="author.nickname" label="작성자 닉네임" />
+          <TextField source="author.email" label="작성자 이메일" />
         </SimpleShowLayout>
         <SimpleShowLayout
           direction="row"
           width={800}
           justifyContent="space-between"
         >
+          {" "}
+          <TextField source="id" label="에세이 ID" />
           <CustomStatusField source="status" label="상태" />
           <TextField source="views" label="조회수" />
-          <TextField source="reportCount" label="리포트 수" />
-          <TextField source="reviewCount" label="리뷰 수" />
+          <CustomField source="reports" label="리포트 수">
+            {(data) => <Chip text={data.length} />}
+          </CustomField>
+          <CustomField source="reviews" label="리뷰 수">
+            {(data) => <Chip text={data.length} />}
+          </CustomField>
         </SimpleShowLayout>
         <SimpleShowLayout
           direction="row"
@@ -87,14 +94,18 @@ const CustomStatusField = ({
 
   return (
     <div>
-      <TextField {...props} />
-      <button
-        onClick={() => {
-          setIsOpenBox((prev) => !prev);
-        }}
-      >
-        {isOpenBox ? "취소" : "변경"}
-      </button>
+      <div style={{ display: "flex", gap: "10px" }}>
+        <CustomField source="status" label="에세이 상태">
+          {(data) => <Chip text={getEssayStatusLabel(data)} />}
+        </CustomField>
+        <button
+          onClick={() => {
+            setIsOpenBox((prev) => !prev);
+          }}
+        >
+          {isOpenBox ? "취소" : "변경"}
+        </button>
+      </div>
       {isOpenBox && (
         <div>
           <button

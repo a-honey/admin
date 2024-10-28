@@ -7,6 +7,8 @@ import {
   TextField,
 } from "react-admin";
 
+import Chip from "../../@common/Chip";
+import CustomField from "../../@common/CustomField";
 import { TextInput } from "react-admin";
 
 const UserList = (props: any) => {
@@ -18,16 +20,18 @@ const UserList = (props: any) => {
       perPage={20}
     >
       <Datagrid>
-        <TextField source="id" />
-        <TextField source="nickname" label="닉네임" />
-        <EmailField source="email" label="이메일" />
+        <TextField source="id" label="사용자 ID" />
+        <TextField source="nickname" label="사용자 닉네임" />
+        <EmailField source="email" label="사용자 이메일" />
+        <CustomField source="status" label="사용자 상태">
+          {(data) => <Chip text={data} />}
+        </CustomField>
         <DateField
           source="createdDate"
-          label="가입날짜"
+          label="사용자 가입날짜"
           showTime
           locales="ko-KR"
         />
-        <TextField source="platform" label="SNS 유형" />
       </Datagrid>
     </List>
   );
