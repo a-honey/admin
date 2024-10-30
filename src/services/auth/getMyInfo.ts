@@ -1,9 +1,8 @@
+import { ManagerType } from "../../components/Manager";
 import httpClient from "../httpClient";
 
 export default function getMyInfo() {
-  const url = `/users/info`;
+  const url = `/admin-info/my`;
 
-  return httpClient(url).then(({ json }) => ({
-    data: json.data,
-  }));
+  return httpClient(url).then(({ json }) => json.data as ManagerType);
 }

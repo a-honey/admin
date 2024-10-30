@@ -1,8 +1,8 @@
 export type ManagerType = {
-  id: 36;
-  email: "guest@linkedout.com";
-  name: "guest";
-  profileImage: null;
-  activated: true;
-  info: null;
+  id: number;
+  email: string;
+  name: string;
+  profileImage: null | string;
+  activated: boolean;
+  info: string | null;
 };

@@ -9,14 +9,17 @@ const httpClient = (url: string, options: any = {}) => {
     options.data = JSON.stringify(options.data);
   }
 
+  options.headers = new Headers();
+
   if (!options.headers) {
-    options.headers = new Headers({ Accept: "application/json" });
+    options.headers.set("Content-Type", "application/json");
   }
 
   options.headers.set("Authorization", `Bearer ${accessToken}`);
   options.headers.set("x-refresh-token", refreshToken);
 
   const fullUrl = `${baseApiUrl}${url}`;
+
   return fetchUtils.fetchJson(fullUrl, options).then((response) => {
     const newAccessToken = response.headers.get("x-access-token");
     if (newAccessToken) {
