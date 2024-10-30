@@ -15,6 +15,7 @@ import AdminPanelSettingsIcon from "@mui/icons-material/AdminPanelSettings";
 import Administrator from "./components/Administrator";
 import AnnouncementIcon from "@mui/icons-material/Announcement";
 import BookIcon from "@mui/icons-material/Book";
+import CampaignIcon from "@mui/icons-material/Campaign";
 import CardGiftcardIcon from "@mui/icons-material/CardGiftcard";
 import Dashboard from "./components/Dashboard";
 import EmojiEmotionsIcon from "@mui/icons-material/EmojiEmotions";
@@ -34,12 +35,15 @@ import PersonIcon from "@mui/icons-material/Person";
 import QnaList from "./components/QnA/QnaList";
 import QnaShow from "./components/QnA/QnaShow";
 import ReleaseList from "./components/Releases/ReleaseList";
+import ReportList from "./components/Report/ReportList";
+import ReportShow from "./components/Report/ReportShow";
 import SupervisorAccountIcon from "@mui/icons-material/SupervisorAccount";
 import ThemeList from "./components/Theme/ThemeList";
 import ThemeShow from "./components/Theme/ThemeShow";
 import UserList from "./components/User/UserList";
 import UserShow from "./components/User/UserShow";
 import Version from "./components/Version";
+import WarningIcon from "@mui/icons-material/Warning";
 import authProvider from "./auth/authProvider";
 import customDataProvider from "./services/dataProvider";
 
@@ -82,6 +86,13 @@ export const App = () => (
         options={{ label: "에세이 목록" }}
       />
       <Resource
+        name="reports"
+        list={ReportList}
+        show={ReportShow}
+        icon={WarningIcon}
+        options={{ label: "레포트 목록" }}
+      />
+      <Resource
         name="releases"
         list={ReleaseList}
         icon={FolderOpenIcon}
@@ -90,7 +101,7 @@ export const App = () => (
       <Resource
         name="notices"
         list={NoticeList}
-        icon={AnnouncementIcon}
+        icon={CampaignIcon}
         show={NoticeShow}
         options={{ label: "공지사항" }}
       />

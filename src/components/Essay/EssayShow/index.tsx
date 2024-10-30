@@ -39,10 +39,10 @@ const EssayShow = (props: any) => {
           <CustomStatusField source="status" label="상태" />
           <TextField source="views" label="조회수" />
           <CustomField source="reports" label="리포트 수">
-            {(data) => <Chip text={data.length} />}
+            {(data) => <Chip text={data?.length} />}
           </CustomField>
           <CustomField source="reviews" label="리뷰 수">
-            {(data) => <Chip text={data.length} />}
+            {(data) => <Chip text={data?.length} />}
           </CustomField>
         </SimpleShowLayout>
         <SimpleShowLayout

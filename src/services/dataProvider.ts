@@ -6,10 +6,12 @@ import getNotices from "./notices/getNotices";
 import getOneEssay from "./essays/getOneEssay";
 import getOneManager from "./managers/getOneManager";
 import getOneNotice from "./notices/getOneNotice";
+import getOneReport from "./reports/getOneReport";
 import getOneTheme from "./theme/getOneTheme";
 import getOneUser from "./users/getOneUser";
 import getQuestions from "./questions/getQuestions";
 import getReleases from "./release/getReleases";
+import getReports from "./reports/getReports";
 import getThemes from "./theme/getThemes";
 import getUsers from "./users/getUsers";
 import httpClient from "./httpClient";
@@ -28,6 +30,7 @@ const customDataProvider = {
     if (resource === "releases") return getReleases(params);
     if (resource === "geulroquis") return getGeulroquis(params);
     if (resource === "themes") return getThemes(params);
+    if (resource === "reports") return getReports(params);
     return dataProvider.getList(resource, params);
   },
 
@@ -37,6 +40,7 @@ const customDataProvider = {
     if (resource === "managers") return getOneManager(params);
     if (resource === "notices") return getOneNotice(params);
     if (resource === "themes") return getOneTheme(params);
+    if (resource === "reports") return getOneReport(params);
 
     const url = `/${resource}/${params.id}`;
     return httpClient(url).then(({ json }) => ({
