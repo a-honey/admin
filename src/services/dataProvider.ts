@@ -1,6 +1,7 @@
 import deleteNotice from "./notices/deleteNotice";
 import getEssays from "./essays/getEssays";
 import getGeulroquis from "./geulroquis/getGeulroquis";
+import getManagerLogs from "./managers/getManagerLogs";
 import getManagers from "./managers/getManagers";
 import getNotices from "./notices/getNotices";
 import getOneEssay from "./essays/getOneEssay";
@@ -26,6 +27,7 @@ const customDataProvider = {
     if (resource === "essays") return getEssays(params);
     if (resource === "notices") return getNotices(params);
     if (resource === "managers") return getManagers(params);
+    if (resource === "managerLogs") return getManagerLogs(params);
     if (resource === "inquiries") return getQuestions(params);
     if (resource === "releases") return getReleases(params);
     if (resource === "geulroquis") return getGeulroquis(params);
