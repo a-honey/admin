@@ -8,7 +8,7 @@ export default async function updateVersion(
   const url = `/admin-office/app/versions/${appId}`;
 
   const options = {
-    method: "PUT",
+    method: "POST",
     data: { version },
   };
 
