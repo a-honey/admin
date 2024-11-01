@@ -5,10 +5,10 @@ import { baseApiUrl } from "../constants/env";
 import getServerStatus from "../services/server/getServerStatus";
 
 export const authProvider: AuthProvider = {
-  login: async ({ username, password }) => {
+  login: async ({ email, password }) => {
     try {
       const response = await axios.post(`${baseApiUrl}/admin-auth/login`, {
-        email: username,
+        email,
         password,
       });
 

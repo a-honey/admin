@@ -23,7 +23,7 @@ const WaitingManagers = () => {
       <div>대기중인 관리자 계정</div>
       <div>
         {managers &&
-          managers.map((el) => <WaitingManagerItem key={el.id} {...el} />)}
+          managers?.map((el) => <WaitingManagerItem key={el.id} {...el} />)}
       </div>
     </div>
   );

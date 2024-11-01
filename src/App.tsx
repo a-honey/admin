@@ -1,6 +1,6 @@
 import "./styles/globals.css";
 
-import { Admin, Resource } from "react-admin";
+import { Admin, CustomRoutes, Resource } from "react-admin";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 import AdminPanelSettingsIcon from "@mui/icons-material/AdminPanelSettings";
@@ -18,6 +18,7 @@ import GeulroquisList from "./components/Geulroquis/GeulroquisList";
 import HelpIcon from "@mui/icons-material/Help";
 import HourglassFullIcon from "@mui/icons-material/HourglassFull";
 import Layout from "./components/GNB";
+import Login from "./components/Auth/Login";
 import ManagerList from "./components/Manager/ManagerList";
 import ManagerLogList from "./components/ManagerLog/ManagerLogList";
 import ManagerShow from "./components/Manager/ManagerShow";
@@ -27,9 +28,11 @@ import NoticeShow from "./components/Notice/NoticeShow";
 import PersonIcon from "@mui/icons-material/Person";
 import QnaList from "./components/QnA/QnaList";
 import QnaShow from "./components/QnA/QnaShow";
+import Register from "./components/Auth/Register";
 import ReleaseList from "./components/Releases/ReleaseList";
 import ReportList from "./components/Report/ReportList";
 import ReportShow from "./components/Report/ReportShow";
+import { Route } from "react-router-dom";
 import SupervisorAccountIcon from "@mui/icons-material/SupervisorAccount";
 import ThemeList from "./components/Theme/ThemeList";
 import ThemeShow from "./components/Theme/ThemeShow";
@@ -63,7 +66,11 @@ export const App = () => (
       dataProvider={customDataProvider}
       authProvider={authProvider}
       dashboard={Dashboard}
+      loginPage={Login}
     >
+      <CustomRoutes noLayout>
+        <Route path="/register" element={<Register />} />
+      </CustomRoutes>
       <Resource
         name="users"
         list={UserList}
